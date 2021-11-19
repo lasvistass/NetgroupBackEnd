@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.ArticoloDTO;
+import com.example.demo.DTO.ArticoloNPDTO;
 import com.example.demo.converter.ArticoloConverter;
+import com.example.demo.converter.ArticoloNPConverter;
 import com.example.demo.entity.Articolo;
 import com.example.demo.repository.ArticoloRepository;
 
@@ -18,6 +20,9 @@ public class ArticoloServiceImpl implements ArticoloService{
 	
 	@Autowired
 	ArticoloConverter articoloConverter;
+	
+	@Autowired
+	ArticoloNPConverter articoloNPConverter;
 	
 	
 	@Override
@@ -38,6 +43,11 @@ public class ArticoloServiceImpl implements ArticoloService{
 	@Override
 	public Articolo getArticoloNormaleById(Integer id) {
 		return articoloRepository.findById(id).get();
+	}
+
+	@Override
+	public List<ArticoloNPDTO> getAllNP() {
+		return articoloNPConverter.converListNP(articoloRepository.findAll());
 	}
 
 }

@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 
 import com.example.demo.DTO.ArticoloDTO;
+import com.example.demo.DTO.ArticoloNPDTO;
 import com.example.demo.entity.Articolo;
 
 public interface ArticoloService {
@@ -14,4 +15,6 @@ public interface ArticoloService {
 	ArticoloDTO getArticoloById(Integer id);
 	
 	Articolo getArticoloNormaleById(Integer id);
+	
+	List<ArticoloNPDTO> getAllNP();
 }

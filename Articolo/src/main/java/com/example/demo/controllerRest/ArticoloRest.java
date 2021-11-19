@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DTO.ArticoloDTO;
+import com.example.demo.DTO.ArticoloNPDTO;
 import com.example.demo.entity.Articolo;
 import com.example.demo.service.ArticoloService;
 
@@ -20,6 +21,15 @@ public class ArticoloRest {
 
 	@Autowired
 	ArticoloService articoloService;
+	
+	/*
+	 * Ho creato una RestApi che restituisca un Articolo DTO con solo nome e prezzo
+	 */
+	
+	@GetMapping(value="ArticoloNP")
+	public List<ArticoloNPDTO> getAllNP(){
+		return articoloService.getAllNP();
+	}
 	
 	@GetMapping(value="/Articoli")
 	public List<ArticoloDTO> getAllArticoli(){

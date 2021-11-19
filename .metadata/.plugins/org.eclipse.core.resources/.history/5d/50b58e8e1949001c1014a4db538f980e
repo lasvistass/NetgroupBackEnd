@@ -1,0 +1,13 @@
+package com.example.demo.converter;
+
+import com.example.demo.DTO.ArticoloNPDTO;
+import com.example.demo.entity.Articolo;
+
+public class ArticoloNPConverter {
+
+	public ArticoloNPDTO convertNP(Articolo articolo) {
+		ArticoloNPDTO np = new ArticoloNPDTO();
+		np.setNome(articolo.getNome());
+		np.setPrezzo(articolo.getPrezzo());
+	}
+}

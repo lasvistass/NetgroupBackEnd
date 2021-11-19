@@ -22,9 +22,7 @@ public class ArticoloConverter {
 		articoloDTO.setNome(articolo.getNome());
 		articoloDTO.setPrezzo(articolo.getPrezzo());
 		List<RecensioneDTO> recensioni = recensioneClient.getAllRecensioniDTOByID(articolo.getIdArticolo());
-		for(int i = 0; i < recensioni.size(); i++) {
-			articoloDTO.getRecensioniDTO().add(recensioni.get(i));
-		}
+		articoloDTO.setRecensioniDTO(recensioni);
 		return articoloDTO;
 	}
 	
