@@ -1,0 +1,27 @@
+package com.example.demo.converter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.example.demo.DTO.RecensioneDTO;
+import com.example.demo.entity.Recensione;
+
+@Component
+public class RecensioneConverter {
+
+	public RecensioneDTO convertRecensione(Recensione recensione) {
+		RecensioneDTO recensioneDTO = new RecensioneDTO();
+		recensioneDTO.setRecensione(recensione.getTesto());
+		return recensioneDTO;
+	}
+	
+	public List<RecensioneDTO> convertListRecensione(List<Recensione> recensioni){
+		List<RecensioneDTO> recensioniDTO = new ArrayList<>();
+		for(int i = 0; i < recensioni.size(); i++) {
+			recensioniDTO.add(convertRecensione(recensioni.get(i)));
+		}
+		return recensioniDTO;
+	}
+}

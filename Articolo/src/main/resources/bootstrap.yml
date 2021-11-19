@@ -1,0 +1,4 @@
+spring:
+  application:
+    name: ArticoloService
+  cloud:    config:      uri: http://localhost:8082

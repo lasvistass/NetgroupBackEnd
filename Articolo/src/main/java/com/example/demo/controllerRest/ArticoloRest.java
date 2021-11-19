@@ -1,0 +1,50 @@
+package com.example.demo.controllerRest;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.DTO.ArticoloDTO;
+import com.example.demo.entity.Articolo;
+import com.example.demo.service.ArticoloService;
+
+@RestController
+@RequestMapping("/api/articolo")
+@CrossOrigin
+public class ArticoloRest {
+
+	@Autowired
+	ArticoloService articoloService;
+	
+	@GetMapping(value="/Articoli")
+	public List<ArticoloDTO> getAllArticoli(){
+		return articoloService.getAllArticoloDTO();
+
+	}
+	
+	@GetMapping(value="/Articoli/Test")
+	public List<Articolo> getAllArticoliTest(){
+		return articoloService.getAllArticolo();
+
+	}
+	
+	
+	@GetMapping(value="/{id}")
+	public ArticoloDTO getArticoloById(@PathVariable("id") Integer id) {
+		return articoloService.getArticoloById(id);
+	}
+	
+	@GetMapping(value="/Articolo/{id}")
+	public Articolo getArticoloNormaleById(@PathVariable("id") Integer id) {
+		return articoloService.getArticoloNormaleById(id);
+	}
+	
+	
+	
+}
+
